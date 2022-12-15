@@ -1,0 +1,15 @@
+//函数指针：
+#include<stdio.h>
+int add(int a, int b)
+{
+	return a + b;
+}
+
+int main()
+{
+	int(*ret)(int, int) = &add;
+	int a = (*ret)(1, 2);
+	printf("%d", a);
+	return 0;
+}
+//函数名就是函数名的地址
