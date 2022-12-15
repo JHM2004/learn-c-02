@@ -21,3 +21,24 @@ int main()
              //    typedef void(*a)(int)
              //    变成了：
              //    a signal(int,a)
+
+
+.................................................................................
+//创建一个函数指针数组：
+
+int Add(int x, int y)
+{
+    return x + y;
+}
+
+int Sub(int x, int y)
+{
+    return x - y;
+}
+
+int main()
+{
+    int (*p1)(int, int) = Add;
+    int (*p2)(int, int) = Sub;
+    int (*pArr[2])(int, int) = { Add,Sub };
+}             
