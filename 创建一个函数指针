@@ -13,3 +13,11 @@ int main()
 	return 0;
 }
 //函数名就是函数名的地址
+.................................................................................
+
+//类型重定义：（typedef）
+             //void(*signal(int, void(*)(int)))(int)
+             //    //typedef unsigned int uint
+             //    typedef void(*a)(int)
+             //    变成了：
+             //    a signal(int,a)
