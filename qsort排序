@@ -26,3 +26,35 @@ int main()
 	print(arr, sz);
 	return 0;
 }
+..............................................................................................
+//qsort排序结构体变量：
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+struct Student
+{
+	char name[10];
+	int age;
+};
+
+int sort_by_age(const void* p1, const void* p2)
+{
+	return ((struct Student*)p1)->age - ((struct Student*)p2)->age;
+}
+
+int sort_by_name(const void* p1, const void* p2)
+{
+	return strcmp(((struct Student*)p1)->name, ((struct Student*)p2)->name);
+}
+
+
+int main()
+{
+	struct Student s[3] = { {"zhangsan",30} ,{"lisi",20} ,{"wangwu",10} };
+	int sz = sizeof(s) / sizeof(s[0]);
+	//1.按年龄排序：
+	qsort(s, sz, sizeof(s[0]), sort_by_age);
+	//2.按名字排序：
+	qsort(s, sz, sizeof(s[0]), sort_by_name);
+	return 0;
+}
