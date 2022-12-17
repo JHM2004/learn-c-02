@@ -58,3 +58,4 @@ int main()
 	qsort(s, sz, sizeof(s[0]), sort_by_name);
 	return 0;
 }
+//注：strcmp是按首字母排的
