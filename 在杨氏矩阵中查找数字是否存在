@@ -79,3 +79,49 @@ int main()
 	}
 	return 0;
 }
+
+三代：
+int find_number(int arr[3][3], int* c, int* r, int a)
+{
+	int x = 0;
+	int y = *r - 1;
+	while (x < *c && y >= 0)
+	{
+		if (arr[x][y] < a)
+		{
+			x++;
+		}
+		else if (arr[x][y] > a)
+		{
+			y--;
+		}
+		else
+		{
+			*c = x;
+			*r = y;
+			return 1;
+		}
+	}
+	return 0;
+}
+
+int main()
+{
+	int arr[3][3] = { 1,2,3,4,5,6,7,8.9 };
+	int a = 0;
+	int x = 3;
+	int y = 3;
+	printf("请输入要查找的数字：");
+	scanf("%d", &a);
+	int ret = find_number(arr, &x, &y, a);
+	if (ret == 1)
+	{
+		printf("找到了\n");
+		printf("坐标为：%d %d", x, y);
+	}
+	else
+	{
+		printf("找不到\n");
+	}
+	return 0;
+}
