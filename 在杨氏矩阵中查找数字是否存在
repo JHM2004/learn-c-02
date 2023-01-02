@@ -1,0 +1,81 @@
+杨氏矩阵查找数字是否存在：
+一代：
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int main()
+{
+	int arr[3][3] = { 1,2,3,4,5,6,7,8,9 };
+	int a = 0;
+	while (1)
+	{
+		printf("请输入要查找的数组中的数字：");
+		scanf("%d", &a);
+		int i = 0;
+		int j = 2;
+		while (1)
+		{
+			if (arr[i][j] < a)
+			{
+				i++;
+			}
+			if (arr[i][j] > a)
+			{
+				j--;
+			}
+			if (arr[i][j] == a)
+			{
+				printf("存在此数，在%d行，%d列\n", i + 1, j + 1);
+				break;
+			}
+			if (j < 0 || i>2)
+			{
+				printf("不存在此数\n");
+				break;
+			}
+		}
+	}
+	return 0;
+}
+
+二代：
+
+int find_number(int arr[3][3], int c, int r, int a)
+{
+	int x = 0;
+	int y = r - 1;
+	while (x < c && y >= 0)
+	{
+		if (arr[x][y] < a)
+		{
+			x++;
+		}
+		else if (arr[x][y] > a)
+		{
+			y--;
+		}
+		else
+		{
+			printf("坐标为：%d %d\n", x, y);
+			return 1;
+		}
+	}
+	return 0;
+}
+
+int main()
+{
+	int arr[3][3] = { 1,2,3,4,5,6,7,8.9 };
+	int a = 0;
+	printf("请输入要查找的数字：");
+	scanf("%d", &a);
+	int ret = find_number(arr, 3, 3, a);
+	if (ret == 1)
+	{
+		printf("找到了\n");
+	}
+	else
+	{
+		printf("找不到\n");
+	}
+	return 0;
+}
