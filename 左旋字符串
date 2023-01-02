@@ -1,0 +1,62 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+
+左旋字符串：
+法一：
+void left_string_rotate(char* p, int k)
+{
+	int i = 0;
+	int n = strlen(p);
+	for (i = 0; i < k; i++)
+	{
+		//一次左旋：
+		char ret = *p;
+		int j = 0;
+		for (j = 0; j <n - 1; j++)
+		{
+			*(p + j) = *(p + j + 1);
+		}
+		*(p + n - 1) = ret;
+	}
+}
+
+int main()
+{
+	char arr[10] = "ABCDEF";
+	int k = 0;
+	printf("%s\n", arr);
+	printf("请输入左旋的次数：");
+	scanf("%d", &k);
+	left_string_rotate(arr, k);
+	printf("%s\n", arr);
+	return 0;
+}
+
+
+
+法二（三步翻转法）：
+
+void reverse(char* left, char* right)
+{
+	while (left < right)
+	{
+		char ret = *left;
+		*left = *right;
+		*right = ret;
+		left++;
+		right--;
+	}
+}
+
+int main()
+{
+	char arr[10] = "ABCDEF";
+	int k = 2;
+	int n = strlen(arr);
+	reverse(arr,arr+k-1);//左
+	reverse(arr+k,arr+n-1);//右
+	reverse(arr,arr+n-1);//整体
+	printf("%s", arr);
+	return 0;
+}
