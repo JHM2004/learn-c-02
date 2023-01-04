@@ -41,3 +41,65 @@ int main()
 	}
 	return 0;
 }
+
+
+法二：（练习使用库函数strncat与strstr）来操作：
+//#define _CRT_SECURE_NO_WARNINGS
+//#include<stdio.h>
+//#include<string.h>
+//使用库函数strcat与strncat：
+//int main()
+//{
+//	char arr[10] = "abcd";
+//	strcat(arr, "efgh");
+//	printf("%s", arr);
+//	return 0;
+//}
+
+//int main()
+//{
+//	char arr[10] = "abcd";
+//	strncat(arr, arr,4);
+//	printf("%s", arr);
+//	return 0;
+//}
+
+
+//判断一个字符串是否是另一个字符串旋转而来的：
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+
+int panduan(char* arr1, char* arr2)
+{	if (strlen(arr1)/2 != (strlen(arr2)))
+	{
+		return 0;
+	}
+	char* ret = strstr(arr1, arr2);
+
+	if (ret == NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+}
+
+int main()
+{
+	char arr1[20] = "abcdef";
+	char arr2[20] = "abcdef";
+	strncat(arr1, arr1, 6);
+	int ret= panduan(arr1, arr2);
+	if (ret == 0)
+	{
+		printf("不是\n");
+	}
+	else
+	{
+		printf("是\n");
+	}
+	return 0;
+}
