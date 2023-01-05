@@ -1,0 +1,43 @@
+//实现strlen求字符串的长度：
+
+// 计数器的版本：
+//
+//#include<assert.h>
+//#include<stdio.h>
+//int my_strlen(const char* str)//更健壮，安全
+//{
+//	assert(str != NULL);
+//	int count = 0;
+//	while (*str != '\0')
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+//
+//int main()
+//{
+//	char arr[10] = "abcd";
+//	int count = my_strlen(arr);
+//	printf("%d", count);
+//	return 0;
+//}
+//注意：用strlen时的返回类型是size_t(unsigned int)，是无符号整数
+//例子：
+
+//#include<stdio.h>
+//#include<string.h>
+//int main()
+//{
+//	if (strlen("asd") - strlen("sasdff") > 0)
+//	{
+//		printf(">\n	");
+//	}
+//	else
+//	{
+//		printf("<=\n");
+//	}
+//	return 0;
+//}
+//
