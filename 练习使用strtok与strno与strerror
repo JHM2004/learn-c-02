@@ -1,0 +1,52 @@
+//1.strtok的使用：
+第一次练习：
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char arr1[] = "abcd.efgh@ijk";
+	char* p = ".@";
+	char tem[20] = {0};
+	strcpy(tem, arr1);
+	char* ret = NULL;
+	ret=strtok(tem, p);
+	printf("%s\n", ret);
+	ret = strtok(NULL, p);
+	printf("%s\n", ret);
+	ret = strtok(NULL, p);
+	printf("%s\n", ret);
+}
+第二次练习：
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char arr1[] = "abcd.efgh@ijk";
+	char* p = ".@";
+	char tem[20] = { 0 };
+	strcpy(tem, arr1);
+	char* ret = NULL;
+	for (ret = strtok(tem, p); ret != NULL; ret = strtok(NULL, p))    //巧妙利用for循环
+	{
+		printf("%s\n", ret);
+	}
+}
+//...............................................................................................
+//2.练习使用strerror与strerron:
+#define _CRT_SECURE_NO_WARNINGS
+#include<errno.h>
+#include<stdio.h>
+int main()
+{
+	FILE* p1 = fopen("text.ere","r");
+	if (p1 == NULL)
+	{
+		printf("%s\n", strerror(errno));
+		return 1;
+	}
+	fclose(p1);
+	p1 = NULL;
+	return 0;
+}
