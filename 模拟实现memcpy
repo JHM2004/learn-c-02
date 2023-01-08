@@ -1,0 +1,54 @@
+//1.练习使用内存操作函数memcpy:
+//用F10调试+窗口监视：
+//int main()
+//{
+//	int arr1[20] = { 0,1,2,3,4,5,6,7,8,9 };
+//	int arr2[20] = { 0 };
+//	memcpy(arr2, arr1, 20);//传前5个元素，4*5=20个字节
+//	return 0;
+//}
+//........................................................................
+//2.模拟实现memcpy：
+//法一：
+#include<stdio.h>
+
+void* my_memcpy(void* p1, const void* p2, size_t num)
+{
+	void* ret = p1;
+	while (num--)
+	{
+		*(char*)p1 = *(char*)p2;
+		p1=(char*)p1 + 1;
+		p2 = (char*)p2 + 1;
+	}
+	return ret;
+}
+
+int main()
+{
+	int arr1[20] = { 0,1,2,3,4,5,6,7,8,9 };
+	int arr2[20] = { 0 };
+	my_memcpy(arr2, arr1, 20);//拷贝前5个整形元素
+	return 0;
+}
+
+//法二：
+#include<stdio.h>
+
+void* my_memcpy(void* p1, const void* p2, size_t num)
+{
+	void* ret = p1;
+	while (num--)
+	{
+		*((char*)p1)++ = *((char*)p2)++;   //简化代码量
+	}
+	return ret;
+}
+
+int main()
+{
+	int arr1[20] = { 0,1,2,3,4,5,6,7,8,9 };
+	int arr2[20] = { 0 };
+	my_memcpy(arr2, arr1, 20);//拷贝前5个整形元素
+	return 0;
+}
