@@ -1,0 +1,32 @@
+//模拟实现memmove:
+#include<stdio.h>
+#include<assert.h>
+void* my_memmove(void* dest, const void* str, size_t num)
+{
+	assert(dest && str);
+	void* ret = dest;
+	if (dest < str)
+	{
+		//从前向后传
+		while (num--)
+		{
+			*((char*)dest)++ = *((char*)str)++;
+		}
+	}
+	else
+	{
+		//从后向前传
+		while (num--)
+		{
+			*((char*)dest + num) = *((char*)str + num);
+		}
+	}
+	return ret;
+}
+
+int main()
+{
+	int arr[20] = { 0,1,2,3,4,5,6,7,8,9 };
+	my_memmove(arr, arr+2, 20);//传五个元素
+	return 0;
+}
