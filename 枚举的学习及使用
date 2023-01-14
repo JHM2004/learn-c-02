@@ -1,0 +1,80 @@
+1.枚举的学习与使用：
+(简单实现计算器的基本框架)
+#include<stdio.h>
+enum option
+{
+	exit,   //0
+	add,    //1
+	sub,    //2
+	mul,    //3
+	div     //4
+};
+
+menu()
+{
+	printf("************************************\n");
+	printf("******    1.add      2.sub    ******\n");
+	printf("******    3.mul      4.div    ******\n");
+	printf("******         0.exit         ******\n");
+	printf("************************************\n");
+
+}
+
+int main()
+{
+	int input = 0;
+	do
+	{
+		menu();
+		printf("请选择数字:>");
+		scanf("%d", &input);
+		switch (input)
+		{
+		case add:
+			break;
+		case sub:
+			break;
+		case mul:
+			break;
+		case div:
+			break;
+		case exit:
+			break;
+		default:
+			break;
+		}
+	} while (input);
+	return 0;
+}
+
+
+注：上面枚举可以之前在前面写此代码，代表的是同样的意思，效果一样。但还是用枚举比较好，因为枚举有类型检查,避免命名污染，使用方便，便于调试。
+#define add 1
+#define sub 2
+#define mul 3
+#define div 4
+#define exit 0
+
+
+2.再次练习枚举：
+
+#include<stdio.h>
+enum option
+{
+	exit,   //0
+	add,    //1
+	sub,    //2
+	mul,    //3
+	div     //4
+};
+
+int main()
+{
+	enum option a = add;
+//此处可以用限定符：enum option a = option::add;（即限定了add是来自于option的）
+	printf("%d\n", a);
+	return 0;
+}
+
+1.枚举常量是int类型的值；
+2.枚举可以定义在其他文档中，使用的时候引用他的头文件即可。
