@@ -1,0 +1,21 @@
+//使用联合体（共用体）判断机器的大小端存储：
+#include<stdio.h>
+union U
+{
+	char c;
+	int i;
+}u;
+
+int main()
+{
+	u.i = 1;
+	if (u.c == 1)
+	{
+		printf("小端存储\n");
+	}
+	else
+	{
+		printf("大端存储\n");
+	}
+	return 0;
+}
