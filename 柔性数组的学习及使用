@@ -1,0 +1,31 @@
+//柔性数组的学习及使用：
+#include<stdio.h>
+
+struct S
+{
+	int n;
+	int arr[0];  //int arr[];
+};
+
+int main()
+{
+	struct S* s = (struct S*)malloc(sizeof(struct S) + 10 * sizeof(int));
+	s->n = 10;
+	int i = 0;
+	for (i = 0; i < 10; i++)
+	{
+		s->arr[i] = i;
+	}
+	struct S* ret=(struct S*)realloc(s, sizeof(struct S) + sizeof(int) * 20);
+	if (ret != NULL);
+	{
+		s = ret;
+	}
+	//使用
+	free(s);
+	s = NULL;
+	return 0;
+}
+
+//1.若不使用柔性数组，用指针，需要两次用malloc，两次内存释放，两次申请的空间会存在内存碎片，浪费空间，引用内存池，即共同申请，用时就不用申请了。
+//2.根据局部性原理，空间局部性，节约时间。
