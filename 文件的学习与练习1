@@ -103,3 +103,29 @@
 //	return 0;
 //}
 
+//7.练习
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int main()
+{
+	FILE* pf = fopen("test.dat", "w");
+	if (pf == NULL)
+	{
+		perror("fopen");
+		return 1;
+	}
+	fputs("abcdef\n", pf);
+	fputs("yyxyyds\n", pf);
+	fputs("xinniankuaile\n", pf);
+	fclose(pf);
+	pf = NULL;
+
+	pf = fopen("test.dat", "r");
+	char arr[30] = { 0 };
+	fgets(arr, 10, pf);
+	fgets(arr, 10, pf);
+	fgets(arr, 10, pf);
+	fclose(pf);
+	pf = NULL;
+	return 0;
+}
