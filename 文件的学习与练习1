@@ -1,0 +1,105 @@
+#define _CRT_SECURE_NO_WARNINGS
+//练习使用文件：
+//1.给屏幕输入数据：
+#include<stdio.h>
+//int main()
+//{
+//	fputc('b', stdout);
+//	fputc('i', stdout);
+//	fputc('t', stdout);
+//	return 0;
+//}
+
+//2.创建一个文件，并写入数据：
+//#include<stdio.h>
+//int main()
+//{
+//	FILE* pf = fopen("test.dat","w");   //注：打开方式用“”双引号！！
+//	if (pf == NULL)
+//	{
+//		perror("fopen");
+//		return 1;
+//	}
+//	fputc('b', pf);
+//	fputc('i', pf);
+//	fputc('t', pf);
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+
+//3.从文件流中读取数据：
+//int main()
+//{
+//	FILE* pf = fopen("test.dat","r");   //注：打开方式用“”双引号！！
+//	if (pf == NULL)
+//	{
+//		perror("fopen");
+//		return 1;
+//	}
+//	int ret=fgetc(pf);
+//	printf("%c", ret);
+//	ret = fgetc(pf);
+//	printf("%c", ret);
+//	ret = fgetc(pf);
+//	printf("%c", ret);
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+//4.从键盘上读取数据：(从标准输入流中读取信息)
+//int main()
+//{
+//	int ret = fgetc(stdin);
+//	printf("%c", ret);
+//	ret = fgetc(stdin);
+//	printf("%c", ret);
+//	ret = fgetc(stdin);
+//	printf("%c", ret);
+//
+//	return 0;
+//}
+
+//5.使用fputs:
+
+//int main()
+//{
+//	FILE* pf = fopen("test.dat", "w");
+//	if (pf == NULL)
+//	{
+//		perror("fopen");
+//		return 1;
+//	}
+//	fputs("abcdef\n", pf);
+//	fputs("yyxyyds\n", pf);
+//	fputs("xinnian\n", pf);
+//	fputs("kuaile\n", pf);
+//	//关闭文件
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+
+
+//使用fgets：
+//int main()
+//{
+//	char arr[10] = { 0 };
+//	FILE* pf = fopen("test.dat", "r");
+//	if (pf == NULL)
+//	{
+//		perror("fopen");
+//		return 1;
+//	}
+//	fgets(arr,6,pf);
+//	fgets(arr,4,pf);
+//
+//	//关闭文件
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
