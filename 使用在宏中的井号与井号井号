@@ -1,0 +1,29 @@
+//使用在宏中的#与##
+// 
+// 1.使用#：(把一个宏参数变成对应的字符串)
+//#include<stdio.h>
+//
+//#define PRINT(X,ret) printf("the value of "#X" is "ret"\n",X)
+//
+//int main()
+//{
+//	int a = 3;
+//	float b = 5.5f;
+//	PRINT(a, "%d");
+//	PRINT(b, "%f");
+//	return 0;
+//}
+//
+
+//2.使用##：(连接两端字符串变成一个字符串)
+//
+//#include<stdio.h>
+//
+//#define CONNECT(STR1,STR2,STR3) STR1##STR2##STR3 
+//
+//int main()
+//{
+//	int ret = 10;
+//	printf("%d\n",CONNECT(r,e,t));
+//	return 0;
+//}
